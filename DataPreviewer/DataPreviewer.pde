@@ -8,16 +8,16 @@
 String[] data; //The array of strings read from inputed WKT file
 SpatialData[] spatialData; //Array of spatial data parsed from data
 int index = 0; //tracks which entry is being viewed
-
+int CANVAS_SIZE = 500;
 void setup() {
- size(1000, 1000); //Default size of the canvas
+ size(500, 500); //Default size of the canvas
  //background(255); //Default Background color - White
  fill(0); //Default Drawing color - Black
  noLoop();
  
  //Loads strings from specified WKT file - each element is a WKT entry
- data = loadStrings("test.polygons.txt");
- //data = loadStrings("test.linestrings.txt");
+ //data = loadStrings("test.polygons.txt");
+ data = loadStrings("test.linestrings.txt");
  //data = loadStrings("test.conicSpiral.txt");
  //data = data = loadStrings("test.triangles.txt");
  //data = data = loadStrings("test.randomWalk.txt");
@@ -35,7 +35,7 @@ void setup() {
 void draw() {
   background(255);
   Drawer preview = new Drawer();
-  preview.drawSpatialData(spatialData[index]);
+  preview.drawScaledSpatialData(spatialData[index]);
   text(spatialData[index].toString(), 20, 20 + 20);
 }
 

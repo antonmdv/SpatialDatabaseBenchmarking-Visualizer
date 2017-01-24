@@ -12,4 +12,5 @@ class Point {
    x = px;
    y = py;
  }
+  
 }
