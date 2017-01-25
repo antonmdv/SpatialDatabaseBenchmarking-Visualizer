@@ -8,7 +8,15 @@
 String[] data; //The array of strings read from inputed WKT file
 SpatialData[] spatialData; //Array of spatial data parsed from data
 int index = 0; //tracks which entry is being viewed
-int CANVAS_SIZE = 500;
+
+int PREVIEW_SIZE = 500; //Display size of the Preview
+int CANVAS_SIZE = 10000; //Settings from the Data Generator
+
+int SCALE_FACTOR = PREVIEW_SIZE/CANVAS_SIZE;
+void settings() {
+  size(PREVIEW_SIZE, PREVIEW_SIZE);
+}
+
 void setup() {
  size(500, 500); //Default size of the canvas
  //background(255); //Default Background color - White

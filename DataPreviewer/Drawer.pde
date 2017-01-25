@@ -84,57 +84,14 @@ class Drawer {
    String type = data.type;
    
    if(type.equals("POINT")){
-     drawScaledPoint(data.points.get(0));
+     drawPoint(data.points.get(0));
    } else if(type.equals("LINESTRING")){
-     drawScaledLineString(data);
+     drawLineString(data);
    } else if(type.equals("TRIANGLE")){
-     drawScaledTriangle(data);
+     drawTriangle(data);
    } else if(type.equals("POLYGON")){
-     drawScaledPolygon(data);
+     drawPolygon(data);
    }
    
-  }
-  
-  //Draws a line segment between two Points
-  public void drawScaledLineSegment(Point coord1, Point coord2){
-    coord1 = coord1.scalePoint();
-    coord2 = coord2.scalePoint();
-    
-    line(coord1.x, coord1.y,
-         coord2.x, coord2.y);
-  }
-  
-  //Draws a line string data type
-  public void drawScaledLineString(SpatialData lineString){
-    drawScaledPoints(lineString.points);
-    
-    for(int i = 1; i < lineString.points.size(); i++){
-      drawScaledLineSegment(lineString.points.get(i-1), lineString.points.get(i)); 
-    }
-  }
-  
-  //Draws a Triangle
-  public void drawScaledTriangle(SpatialData triangle){
-    drawScaledPoints(triangle.points);
-    
-    Point point1 = triangle.points.get(0).scalePoint();
-    Point point2 = triangle.points.get(1).scalePoint();
-    Point point3 = triangle.points.get(2).scalePoint();
-    
-    drawScaledLineSegment(point1, point2);
-    drawScaledLineSegment(point2, point3);
-    drawScaledLineSegment(point3, point1);
-  }
-  
-  //Draws a polygon
-  public void drawScaledPolygon(SpatialData polygon){
-    //Draw a lineString using the polygon
-    drawScaledLineString(polygon);
-    
-    //Close the gap between the first and last points
-    Point pointStart = polygon.points.get(0).scalePoint();
-    Point pointEnd = polygon.points.get(polygon.points.size()-1).scalePoint();
-    
-    drawScaledLineSegment(pointStart, pointEnd);
   }
 }
