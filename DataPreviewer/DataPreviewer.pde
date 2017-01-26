@@ -14,7 +14,7 @@ int CANVAS_SIZE = 1000; //Settings from the Data Generator
 
 float SCALE_FACTOR = (float)PREVIEW_SIZE/CANVAS_SIZE;
 void settings() {
-  size(PREVIEW_SIZE, PREVIEW_SIZE);
+  size(PREVIEW_SIZE, PREVIEW_SIZE+100);
 }
 
 void setup() {
@@ -44,7 +44,7 @@ void draw() {
   background(255);
   Drawer preview = new Drawer();
   preview.drawSpatialData(spatialData[index]);
-  text(spatialData[index].toString(), 20, 20 + 20);
+  text(spatialData[index].toString(), 0, 550);
 }
 
 //handles events on key presses

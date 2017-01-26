@@ -26,13 +26,22 @@ class SpatialData{
    * Mostly just a test function to make sure points are correct
    */
   public String stringPoints(){
-     String strPnt = "(";
+    int count = 0; 
+    String strPnt = "(";
      for(int i = 0; i < this.points.size(); i++){
          if(i != this.points.size()-1){
            strPnt += this.points.get(i).x + " " + this.points.get(i).y + ", ";
-         } else {
+         }else {
            strPnt +=  this.points.get(i).x + " " + this.points.get(i).y;
          }
+         
+         //If String excedes preview window (~5 pairs of coords), start new line
+         count++;
+         if((count > 5) && (i < this.points.size()-1)){
+           strPnt += "\n"; 
+           count = 0;
+         }
+           
      }
      strPnt += ")";
      return strPnt;
