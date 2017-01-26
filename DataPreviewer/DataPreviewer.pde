@@ -10,9 +10,9 @@ SpatialData[] spatialData; //Array of spatial data parsed from data
 int index = 0; //tracks which entry is being viewed
 
 int PREVIEW_SIZE = 500; //Display size of the Preview
-int CANVAS_SIZE = 10000; //Settings from the Data Generator
+int CANVAS_SIZE = 1000; //Settings from the Data Generator
 
-float SCALE_FACTOR = .5;
+float SCALE_FACTOR = (float)PREVIEW_SIZE/CANVAS_SIZE;
 void settings() {
   size(PREVIEW_SIZE, PREVIEW_SIZE);
 }
