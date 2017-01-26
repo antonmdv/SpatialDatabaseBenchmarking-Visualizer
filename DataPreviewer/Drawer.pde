@@ -30,7 +30,7 @@ class Drawer {
   
   //Draws a singluar point on the canvas
   public void drawPoint(Point coord){
-    ellipse(coord.x, coord.y, 5, 5);
+    ellipse(coord.x*SCALE_FACTOR, coord.y*SCALE_FACTOR, 5, 5);
   }
   
   //Draws all the points in a list of points
@@ -42,8 +42,8 @@ class Drawer {
   
   //Draws a line segment between two Points
   public void drawLineSegment(Point coord1, Point coord2){
-    line(coord1.x, coord1.y,
-         coord2.x, coord2.y);
+    line(coord1.x*SCALE_FACTOR, coord1.y*SCALE_FACTOR,
+         coord2.x*SCALE_FACTOR, coord2.y*SCALE_FACTOR);
   }
   
   //Draws a line string data type
@@ -80,18 +80,4 @@ class Drawer {
     drawLineSegment(pointStart, pointEnd);
   }
   
-  public void drawScaledSpatialData(SpatialData data){
-   String type = data.type;
-   
-   if(type.equals("POINT")){
-     drawPoint(data.points.get(0));
-   } else if(type.equals("LINESTRING")){
-     drawLineString(data);
-   } else if(type.equals("TRIANGLE")){
-     drawTriangle(data);
-   } else if(type.equals("POLYGON")){
-     drawPolygon(data);
-   }
-   
-  }
 }

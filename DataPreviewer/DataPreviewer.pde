@@ -12,7 +12,7 @@ int index = 0; //tracks which entry is being viewed
 int PREVIEW_SIZE = 500; //Display size of the Preview
 int CANVAS_SIZE = 10000; //Settings from the Data Generator
 
-int SCALE_FACTOR = PREVIEW_SIZE/CANVAS_SIZE;
+float SCALE_FACTOR = .5;
 void settings() {
   size(PREVIEW_SIZE, PREVIEW_SIZE);
 }
@@ -43,7 +43,7 @@ void setup() {
 void draw() {
   background(255);
   Drawer preview = new Drawer();
-  preview.drawScaledSpatialData(spatialData[index]);
+  preview.drawSpatialData(spatialData[index]);
   text(spatialData[index].toString(), 20, 20 + 20);
 }
 
