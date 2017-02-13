@@ -13,6 +13,8 @@ int PREVIEW_SIZE = 500; //Display size of the Preview
 int CANVAS_SIZE = 1000; //Settings from the Data Generator
 
 float SCALE_FACTOR = (float)PREVIEW_SIZE/CANVAS_SIZE;
+//float SCALE_FACTOR = 1.5;
+
 void settings() {
   size(PREVIEW_SIZE, PREVIEW_SIZE+100);
 }
@@ -27,8 +29,10 @@ void setup() {
  //data = loadStrings("test.polygons.txt");
  data = loadStrings("test.linestrings.txt");
  //data = loadStrings("test.conicSpiral.txt");
- //data = data = loadStrings("test.triangles.txt");
- //data = data = loadStrings("test.randomWalk.txt");
+ //data = loadStrings("test.triangles.txt");
+ //data = loadStrings("test.randomWalk.txt");
+ //data = loadStrings("test.midPointDisplacement.txt");
+ //data = loadStrings("test.Quick-StarPolygons.txt");
  spatialData = new SpatialData[data.length];
  
  //For each element of data, parse the WKT entry, and create a SpatialData Object
