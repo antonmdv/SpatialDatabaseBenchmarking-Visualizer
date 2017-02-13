@@ -12,8 +12,9 @@ int index = 0; //tracks which entry is being viewed
 int PREVIEW_SIZE = 500; //Display size of the Preview
 int CANVAS_SIZE = 1000; //Settings from the Data Generator
 
-float SCALE_FACTOR = (float)PREVIEW_SIZE/CANVAS_SIZE;
-//float SCALE_FACTOR = 1.5;
+//float SCALE_FACTOR = (float)PREVIEW_SIZE/CANVAS_SIZE;
+float SCALE_FACTOR = 2.5;
+
 
 void settings() {
   size(PREVIEW_SIZE, PREVIEW_SIZE+100);
@@ -26,13 +27,14 @@ void setup() {
  noLoop();
  
  //Loads strings from specified WKT file - each element is a WKT entry
- //data = loadStrings("test.polygons.txt");
- data = loadStrings("test.linestrings.txt");
- //data = loadStrings("test.conicSpiral.txt");
- //data = loadStrings("test.triangles.txt");
- //data = loadStrings("test.randomWalk.txt");
- //data = loadStrings("test.midPointDisplacement.txt");
- //data = loadStrings("test.Quick-StarPolygons.txt");
+ // .txt must be in the DataPreviewer Directory
+ //data = loadStrings("data.polygons.txt");
+ //data = loadStrings("data.linestrings.txt");
+ data = loadStrings("data.conicSpiral.txt");
+ //data = loadStrings("data.triangles.txt");
+ //data = loadStrings("data.randomWalk.txt");
+ //data = loadStrings("dara.midPointDisplacement.txt");
+ //data = loadStrings("data.Quick-StarPolygons.txt");
  spatialData = new SpatialData[data.length];
  
  //For each element of data, parse the WKT entry, and create a SpatialData Object
@@ -59,6 +61,7 @@ void mousePressed() {
   } 
   redraw();
 }
+
 /* Parses the WKT  by triming the ")", "(", and ","s 
  * and returing the final String array
  */
