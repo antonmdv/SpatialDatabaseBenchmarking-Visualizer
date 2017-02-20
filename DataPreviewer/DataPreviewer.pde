@@ -12,8 +12,8 @@ int index = 0; //tracks which entry is being viewed
 int PREVIEW_SIZE = 500; //Display size of the Preview
 int CANVAS_SIZE = 1000; //Settings from the Data Generator
 
-//float SCALE_FACTOR = (float)PREVIEW_SIZE/CANVAS_SIZE;
-float SCALE_FACTOR = 2.5;
+float SCALE_FACTOR = (float)PREVIEW_SIZE/CANVAS_SIZE;
+//float SCALE_FACTOR = 2.5;
 
 
 void settings() {
@@ -21,7 +21,7 @@ void settings() {
 }
 
 void setup() {
- size(500, 500); //Default size of the canvas
+ //size(500, 500); //Default size of the canvas
  //background(255); //Default Background color - White
  fill(0); //Default Drawing color - Black
  noLoop();
