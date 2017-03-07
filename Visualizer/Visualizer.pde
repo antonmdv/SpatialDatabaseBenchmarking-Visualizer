@@ -4,7 +4,15 @@
  * Prototype Spatial Data Previewer
  * Used for verification of Algorithms
  */
-  
+
+float bx; //x coord for scrolling
+float by; //y coord for scrolling
+float xOffset = 0.0; //mouse x coord for scrolling
+float yOffset = 0.0; //mouse y coord for scrolling
+
+float zoom; //float representing doom
+
+
 String[] data; //The array of strings read from inputed WKT file
 ArrayList<SpatialData> spatialData; //Array of spatial data parsed from data
 //int index = 0; //tracks which entry is being viewed
@@ -13,50 +21,58 @@ int PREVIEW_SIZE = 500; //Display size of the Preview
 int CANVAS_SIZE = 1000; //Settings from the Data Generator
 
 float SCALE_FACTOR = (float)PREVIEW_SIZE/CANVAS_SIZE;
+
+//Settings function - Values enter into GUI go here
 void settings() {
   size(PREVIEW_SIZE, PREVIEW_SIZE+100);
+  bx = 0.0;
+  by = 0.0;
+  zoom = 1.0;
 }
 
 void setup() {
- size(500, 500); //Default size of the canvas
- //background(255); //Default Background color - White
- fill(0); //Default Drawing color - Black
- noLoop();
- 
- //Loads strings from all the following WKT files - each element is a WKT entry
- String arrayWKT[] = {"data.polygons.txt","data.linestrings.txt","data.conicSpiral.txt","data.triangles.txt"
+  fill(0);
+  noLoop();
+  
+  //Loads strings from all the following WKT files - each element is a WKT entry
+  String arrayWKT[] = {"data.polygons.txt","data.linestrings.txt","data.conicSpiral.txt","data.triangles.txt"
              ,"data.randomWalk.txt", "data.Quick-StarPolygons.txt", "data.midPointDisplacement.txt"};
- spatialData = new ArrayList<SpatialData>();
- for(int i = 0; i < arrayWKT.length; i++){
-   
-   data = loadStrings(arrayWKT[i]);
-   
-   
-   //For each element of data, parse the WKT entry, and create a SpatialData Object
-   for(int j = 0; j < data.length; j++){
+  spatialData = new ArrayList<SpatialData>();
+  
+  for(int i = 0; i < arrayWKT.length; i++){
+    data = loadStrings(arrayWKT[i]);
+    //For each element of data, parse the WKT entry, and create a SpatialData Object
+    for(int j = 0; j < data.length; j++){
       String[] pieces = parseWKT(data[j]);
       spatialData.add(new SpatialData(pieces));
-   }
- }
- 
+    }
+  } 
 }
 
 //Draws current entry to the canvas
 void draw() {
-  background(255);
+  background(255); //Default Background color - White
   Drawer preview = new Drawer();
   for(int i = 0; i < spatialData.size(); i++){
     preview.drawSpatialData(spatialData.get(i));
   }
 }
 
-//handles events on key presses
+//offset of the mouse, so the dragging doesn't center on the mouse
 void mousePressed() {
-  //index++; 
-  //if (index >= spatialData.size()) {
-  //  index = 0;  // go back to the beginning
-  //} 
-  //redraw();
+    xOffset = mouseX-bx; 
+    yOffset = mouseY-by; 
+}
+
+//keeps track off mouse coordinates while clicking and dragging, then redraws the canvas
+void mouseDragged() {
+    if (keyPressed == true && key == CODED && keyCode == CONTROL){
+      zoom += .01;
+    }else{
+      bx = mouseX-xOffset; 
+      by = mouseY-yOffset; 
+    }
+    redraw();
 }
 
 /* Parses the WKT  by triming the ")", "(", and ","s 

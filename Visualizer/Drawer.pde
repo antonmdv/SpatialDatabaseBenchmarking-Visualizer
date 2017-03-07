@@ -36,7 +36,8 @@ class Drawer {
   
   //Draws a singluar point on the canvas
   public void drawPoint(Point coord){
-    ellipse(coord.x, coord.y, 5, 5);
+    stroke(0);
+    ellipse(coord.x+bx, coord.y+by, 5, 5);
   }
   
   //Draws all the points in a list of points
@@ -48,8 +49,8 @@ class Drawer {
   
   //Draws a line segment between two Points
   public void drawLineSegment(Point coord1, Point coord2){
-    line(coord1.x, coord1.y,
-         coord2.x, coord2.y);
+    line(coord1.x+bx, coord1.y+by,
+         coord2.x+bx, coord2.y+by);
   }
   
   //Draws a line string data type
