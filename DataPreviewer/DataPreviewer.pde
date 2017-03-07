@@ -22,7 +22,7 @@ void settings() {
 
 void setup() {
  //size(500, 500); //Default size of the canvas
- //background(255); //Default Background color - White
+ background(255); //Default Background color - White
  fill(0); //Default Drawing color - Black
  noLoop();
  

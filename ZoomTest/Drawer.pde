@@ -19,16 +19,10 @@ class Drawer {
    if(type.equals("POINT")){
      drawPoint(data.points.get(0));
    } else if(type.equals("LINESTRING")){
-     //fill(#00ff00);
-     stroke(#00ff00);
      drawLineString(data);
    } else if(type.equals("TRIANGLE")){
-     //fill(#ff0000);
-     stroke(#ff0000);
      drawTriangle(data);
    } else if(type.equals("POLYGON")){
-     //fill(#0000ff);
-     stroke(#0000ff);
      drawPolygon(data);
    }
    
@@ -36,7 +30,7 @@ class Drawer {
   
   //Draws a singluar point on the canvas
   public void drawPoint(Point coord){
-    ellipse(coord.x, coord.y, 5, 5);
+    ellipse(coord.x+bx, coord.y+by, 5, 5);
   }
   
   //Draws all the points in a list of points
@@ -48,8 +42,8 @@ class Drawer {
   
   //Draws a line segment between two Points
   public void drawLineSegment(Point coord1, Point coord2){
-    line(coord1.x, coord1.y,
-         coord2.x, coord2.y);
+    line(coord1.x+bx, coord1.y+by,
+         coord2.x+bx, coord2.y+by);
   }
   
   //Draws a line string data type
