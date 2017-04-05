@@ -30,10 +30,10 @@ void setup() {
  // .txt must be in the DataPreviewer Directory
  //data = loadStrings("data.polygons.txt");
  //data = loadStrings("data.linestrings.txt");
- data = loadStrings("data.conicSpiral.txt");
+ //data = loadStrings("data.conicSpiral.txt");
  //data = loadStrings("data.triangles.txt");
  //data = loadStrings("data.randomWalk.txt");
- //data = loadStrings("dara.midPointDisplacement.txt");
+ data = loadStrings("data.midPointDisplacement.txt");
  //data = loadStrings("data.Quick-StarPolygons.txt");
  spatialData = new SpatialData[data.length];
  

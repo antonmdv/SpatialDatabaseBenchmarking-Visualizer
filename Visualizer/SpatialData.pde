@@ -44,4 +44,5 @@ class SpatialData{
   public String toString(){
    return this.type + " " + this.stringPoints();
   }
+
 }

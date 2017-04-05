@@ -19,15 +19,15 @@ class Drawer {
    if(type.equals("POINT")){
      drawPoint(data.points.get(0));
    } else if(type.equals("LINESTRING")){
-     //fill(#00ff00);
+     fill(#00ff00);
      stroke(#00ff00);
      drawLineString(data);
    } else if(type.equals("TRIANGLE")){
-     //fill(#ff0000);
+     fill(#ff0000);
      stroke(#ff0000);
      drawTriangle(data);
    } else if(type.equals("POLYGON")){
-     //fill(#0000ff);
+     fill(#0000ff);
      stroke(#0000ff);
      drawPolygon(data);
    }
@@ -36,7 +36,6 @@ class Drawer {
   
   //Draws a singluar point on the canvas
   public void drawPoint(Point coord){
-    stroke(0);
     ellipse(coord.x+bx, coord.y+by, 5, 5);
   }
   
