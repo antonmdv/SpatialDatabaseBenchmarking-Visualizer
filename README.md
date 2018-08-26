@@ -1,6 +1,5 @@
 # Part 1:
 See SpatialDatabaseBenchmarking-Generator repo
-Spatial Data Generator Module designed as a part of Senior Design Project for CS department at Florida Institute of Technology.
 
 # Part 2: 
 Spatial Data Visualizer Module designed as a part of Senior Design Project for CS department at Florida Institute of Technology.
